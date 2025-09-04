@@ -20,6 +20,7 @@ const createBike = catchAsync(async (req, res) => {
 
 const getAllBikes = catchAsync(async (req, res) => {
   const searchTerm = req.query.searchTerm as string;
+  const brand = req.query.brand as string;
   const minPrice =
     typeof req.query.minPrice === 'string' ? Number(req.query.minPrice) : 0;
   const maxPrice =
@@ -31,6 +32,7 @@ const getAllBikes = catchAsync(async (req, res) => {
     minPrice,
     maxPrice,
     availability,
+    brand,
   );
 
   sendResponse(res, {

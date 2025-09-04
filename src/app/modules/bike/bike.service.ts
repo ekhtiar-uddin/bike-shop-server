@@ -11,8 +11,11 @@ const getBikes = async (
   minPrice: number,
   maxPrice: number,
   availability: boolean,
+  brand: string,
 ) => {
   // filter data accordingto searchTerm using $or method
+
+  console.log('searchTerm', searchTerm);
 
   const searchQueryObj = searchTerm
     ? {
@@ -25,7 +28,12 @@ const getBikes = async (
       }
     : {};
 
-  const searchQuery = Bike.find(searchQueryObj);
+  let searchQuery = Bike.find(searchQueryObj);
+
+  console.log('brand', brand);
+  if (brand) {
+    searchQuery = searchQuery.find({ brand: { $regex: brand, $options: 'i' } });
+  }
 
   if (availability) {
     const availabilityQueryQbj = {

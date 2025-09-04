@@ -8,10 +8,10 @@
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier . --write",
-    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "start:prod": "node ./dist/server.js",
     "test": "node src/test.js",
-    "commit": "git add . && git commit -m \"added readme professionally \" && git push"
+    "commit": "git add . && git commit -m \"corrected bikes filter system \" && git push"
   },
   "keywords": [],
   "author": "",
